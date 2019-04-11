@@ -210,8 +210,8 @@ function delete_local_user() {
     # Dont want to close nicely? DIE!
     /usr/bin/pkill -9 -u "${1}" || true
     sleep 1
-    # Remove account now that all processes for the user are gone
-    /usr/sbin/userdel -f -r "${1}"
+    # Remove account (keep homedir) now that all processes for the user are gone
+    /usr/sbin/userdel -f "${1}"
     log "Deleted user ${1}"
 }
 
